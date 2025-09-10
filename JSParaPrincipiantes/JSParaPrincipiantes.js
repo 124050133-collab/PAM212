@@ -1,1 +1,1 @@
-document.write("<h1>Inicio PAM</h1>");
+document.write("<h1>JS Para Principiantes</h1>");
