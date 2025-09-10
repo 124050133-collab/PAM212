@@ -1,0 +1,1 @@
+document.write("<h1>Inicio PAM</h1>");
