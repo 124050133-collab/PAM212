@@ -1,3 +1,3 @@
-const cuadrado = (numero) => numero * numero;
-console.log(cuadrado(56));  
-console.log(cuadrado(2)); 
+const saludoPersonalizado = (nombre, edad) =>  
+  "Hola, me llamo " + nombre + " y tengo " + edad + " años.";
+console.log(saludoPersonalizado("Isay", 37));
