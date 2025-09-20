@@ -8,9 +8,17 @@
   <h1>Practica 2</h1>
 
   <script>
-   const saludoPersonalizado = (nombre, edad) =>  
-  "Hola, me llamo " + nombre + " y tengo " + edad + " años.";
-console.log(saludoPersonalizado("Isay", 37));   
+  const persona = {
+    nombre: "Pablo Cipriano",
+    edad: 19,
+    direccion: {
+        cuidad: "Qro",
+        pais: "MX"
+    }
+}
+
+const { nombre, edad, direccion: {pais, cuidad }} = persona;
+console.log( "Me llamo " + nombre + " tengo " + edad + " años y vivo en " + cuidad + "."); 
   </script>
 </body>
 </html>
