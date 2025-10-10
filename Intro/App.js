@@ -7,6 +7,7 @@ import React, {useState} from 'react';
 export default function App() {
 
   const[contador, setContador]=useState(0);
+  
   return (
     <View style={styles.container}>
       <Text> Contador: {contador} </Text>

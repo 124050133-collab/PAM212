@@ -1,0 +1,54 @@
++-------------------+     +-------------------+     +-------------------+
+|     Usuario       |     |    JuegoMatrices  |     |     Matriz        |
++-------------------+     +-------------------+     +-------------------+
+| - id: String      |     | - nivelActual: int|     | - filas: int      |
+| - nombre: String  |     | - puntuacion: int |     | - columnas: int   |
+| - progreso: int   |     | - tiempo: int     |     | - datos: double[][]|
++-------------------+     +-------------------+     +-------------------+
+| + login()         |     | + iniciarJuego()  |     | + suma()          |
+| + guardarProgreso()|     | + pausarJuego()  |     | + resta()         |
+| + obtenerEstadisticas()| + + terminarJuego()|     | + multiplicacion()|
++-------------------+     +-------------------+     | + determinante()  |
+                           |                       | + transpuesta()   |
+                           |                       +-------------------+
+                           |                               ^
+                           |                               |
+                           |                       +-------------------+
+                           |                       |  MatrizEspecial   |
+                           |                       +-------------------+
+                           |                       | - tipo: String    |
+                           |                       | - esInvertible: bool|
+                           |                       +-------------------+
+                           |
++-------------------+     |
+|     Nivel         |     |
++-------------------+     |
+| - numero: int     |<----+
+| - dificultad: String|
+| - objetivo: String |
+| - tiempoLimite: int|
++-------------------+
+| + verificarCompletado()|
+| + calcularPuntuacion() |
++-------------------+
+          ^
+          |
+          |       +-------------------+
+          |       |    Desafio        |
+          +------>+-------------------+
+                  | - tipo: String    |
+                  | - enunciado: String|
+                  | - solucion: Matriz|
+                  +-------------------+
+                  | + generarDesafio()|
+                  | + verificarRespuesta()|
+                  +-------------------+
+                          ^
+                          |
+          +---------------+---------------+
+          |               |               |
++-------------------+ +-------------------+ +-------------------+
+| DesafioOperacion  | | DesafioPropiedad | | DesafioAplicacion |
++-------------------+ +-------------------+ +-------------------+
+| - operacion: String| | - propiedad: String| | - contexto: String|
++-------------------+ +-------------------+ +-------------------+
