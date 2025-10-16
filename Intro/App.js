@@ -1,7 +1,7 @@
-import ContadorScreen from './screens/ContadorScreen';
+import React from 'react';
+import MenuScreen from './screens/MenuScreen';
 
-export default function App() {  
-  return (
-    <ContadorScreen></ContadorScreen>
-  );
+export default function App() {
+  return <MenuScreen />;
 }
+
