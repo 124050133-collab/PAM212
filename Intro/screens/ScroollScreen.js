@@ -1,10 +1,10 @@
 import { Text, StyleSheet, View } from 'react-native';
 import React from 'react';
 
-export default function BotonesScreen() {
+export default function ScroollScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>BotonesScreen Próximamente...</Text>
+      <Text style={styles.text}>ScroollScreen Próximamente...</Text>
     </View>
   );
 }

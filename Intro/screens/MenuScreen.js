@@ -1,10 +1,10 @@
 import { Text, StyleSheet, View, Button } from 'react-native';
 import React, { useState } from 'react';
-import BotonesScreen from './BotonesScreen';
+import BotonesScreen from './Botones/BotonesScreen';
 import ContadorScreen from './ContadorScreen';
 import TextScreen from './TextScreen';
 import ImageScreen from './ImageScreen';
-// import ScrollScreen from './ScrollScreen';
+import ScroollScreen from './ScroollScreen';
 import ActivitiIndScreen from './ActivitiIndScreen';
 import FlatListScreen from './FlatListScreen';
 import ModalScreen from './ModalScreen';
@@ -21,8 +21,8 @@ export default function MenuScreen() {
       return <TextScreen />;
     case 'image':
       return <ImageScreen/>;
-   // case 'scroll':
-     // return <ScrollScreen/>;
+    case 'scroll':
+      return <ScroollScreen/>;
     case 'actInd':
       return <ActivitiIndScreen/>
     case 'flatList':
@@ -39,6 +39,7 @@ export default function MenuScreen() {
             <Button title="Práctica Botones" onPress={() => setScreen('botones')} />
             <Button title="Práctica Text" onPress={() => setScreen('text')} />
             <Button title="Práctica ImageBackground & SplashScreen" onPress={() => setScreen('image')} />
+            <Button title="Práctica Scroll" onPress={() => setScreen('scroll')} />
             <Button title="Práctica ActivitiIndicator" onPress={() => setScreen('actInd')} />
             <Button title="Práctica FlatList & SectionList" onPress={() => setScreen('flatList')} />
             <Button title="Práctica Modal" onPress={() => setScreen('modal')} />

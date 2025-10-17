@@ -7,7 +7,7 @@ export default function TextScreen() {
 
   const enviarNombre = () => {
   if (nombre.trim() === '') {
-     Alert.alert('Error', 'Por favor ingresa un nombre');
+    Alert.alert('Error', 'Por favor ingresa un nombre');
     setMensaje('Por favor ingresa un nombre');
   } else {
      Alert.alert('¡Hola!', 'Bienvenidooo, ' + nombre + '!');
