@@ -1,0 +1,108 @@
+/1. Crear archivo TextScreen.js
+
+//2. Importamos librerías:
+import React, { useState } from 'react';
+import { View, Text, TextInput, Alert, Button, StyleSheet } from 'react-native';
+
+//3. Creamos el componente principal: Aquí defines tu componente funcional TextScreen. Todo lo que esté dentro de esta función es lo que se renderiza en la pantalla.
+export default function TextScreen() {}
+
+//4. Declaramos estados:
+// Estado para guardar el nombre ingresado por el usuario
+// nombre → es el valor actual del estado.
+// setNombre → es la función que sirve para actualizar el valor de nombre.
+  const [nombre, setNombre] = useState(''); //useState('') crea un estado inicial, que en este caso es un string vacío ''
+
+// Estado para mostrar el mensaje en pantalla
+  const [mensaje, setMensaje] = useState('');
+
+  //5. Creamos función para enviar nombre:
+  //Función que se ejecuta al presionar el botón "Enviar"
+  const enviarNombre = () => {
+  // Validar si el input está vacío o solo con espacios
+
+  const mostrarAlerta = () => {
+  // Verificamos si el usuario escribió algo
+  // El método trim() elimina los espacios al inicio y al final del texto.
+  // Ejemplo: "   Fer   ".trim() -> "Fer"
+  // Si después de quitar espacios queda vacío, significa que no escribió nada real.
+  if (nombre.trim() === '') {
+    
+    // Mostrar alerta emergente
+    // Alert.alert() muestra una ventana emergente en dispositivos móviles (Android/iOS).
+    // Es útil para avisos rápidos, errores o confirmaciones.
+    // Importante: en PC o navegador, puede que NO funcione o no se muestre igual.
+    Alert.alert('Error', 'Por favor ingresa un nombre');  // Solo móvil / emulador real
+
+    // Actualizar mensaje dentro de la app
+    // setMensaje() cambia el estado de la variable "mensaje", para que se vea en pantalla.
+    // Funciona en TODOS los entornos: móvil, web o escritorio (React o React Native Web).
+    // Esto asegura que el usuario vea un mensaje aunque esté en una laptop o navegador.
+    setMensaje('Por favor ingresa un nombre');  // Visible en web / laptop
+
+  } else {
+    // Si sí escribió su nombre...
+    // Mostramos un saludo tanto por alerta (móvil) como dentro del texto (web/laptop)
+    
+    // Muestra una alerta del sistema (solo móvil)
+    Alert.alert('¡Hola!', 'Bienvenidooo, ' + nombre + '!');  
+
+    // Muestra el mensaje dentro de la app (visible en PC y móvil)
+    setMensaje('Bienvenidooo, ' + nombre + '!');  
+  }
+};
+
+
+
+//6. Creamos la interfaz de usuario:
+
+//<Text>: es un componente de React Native que muestra texto en pantalla.
+//style={styles.title}: aplica los estilos definidos en tu StyleSheet (tamaño de letra, negrita, etc.).
+//"Ingresa tu nombre:": es el texto que se ve en la pantalla, le indica al usuario qué hacer.
+
+  return (
+    // contenedor o caja principal donde van todos los elementos.
+    // style={styles.container}: aplica los estilos que definiste (centrado, padding, gap, etc.).
+    // <Text style={styles.title}>Ingresa tu nombre:</Text> Muestra un texto estático en pantalla. Sirve como instrucción para el usuario.
+
+    <View style={styles.container}> 
+      <Text style={styles.title}>Ingresa tu nombre:</Text>
+      <TextInput
+        style={styles.input} // aplica estilos
+        placeholder="Escribe tu nombre" // texto guía que aparece al escribir
+        value={nombre}       // muestra el valor del estado nombre
+        onChangeText={setNombre} // actualiza el estado cuando el usuario escribe
+      />
+      <Button title="Enviar" onPress={enviarNombre} />  
+      <Text style={styles.mensaje}>{mensaje}</Text> 
+    </View>
+  );
+}
+
+//7. ESTILOS
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    padding:20,
+    gap:10
+  },
+  title:{
+    fontSize:25,
+    fontWeight:'bold'
+  },
+  input:{
+    width:'80%',
+    borderWidth:3,
+    borderColor:'#a47bf7ff',
+    padding:12,
+    borderRadius:9
+  },
+  mensaje:{
+    marginTop:20,
+    fontSize:18,
+    color:'#e431f1ff',
+    textAlign:'center'
+  }
+});

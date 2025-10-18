@@ -17,7 +17,7 @@ export default function MenuScreen() {
       return <ContadorScreen />;
     case 'botones':
       return <BotonesScreen />;
-    case 'text':
+    case 'textInput':
       return <TextScreen />;
     case 'image':
       return <ImageScreen/>;
@@ -37,7 +37,7 @@ export default function MenuScreen() {
           <View style={styles.botonesContainer}>
             <Button title="Práctica Contador" onPress={() => setScreen('contador')} />
             <Button title="Práctica Botones" onPress={() => setScreen('botones')} />
-            <Button title="Práctica Text" onPress={() => setScreen('text')} />
+            <Button title="Práctica Text" onPress={() => setScreen('textInput')} />
             <Button title="Práctica ImageBackground & SplashScreen" onPress={() => setScreen('image')} />
             <Button title="Práctica Scroll" onPress={() => setScreen('scroll')} />
             <Button title="Práctica ActivitiIndicator" onPress={() => setScreen('actInd')} />
@@ -52,15 +52,40 @@ export default function MenuScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#abd4efff',
+    backgroundColor: '#EAF4FC', // fondo suave azulado
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   title: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#0A3D62', // azul oscuro elegante
+    marginBottom: 30,
+    textAlign: 'center',
+    letterSpacing: 1,
   },
   botonesContainer: {
-    gap: 12,
+    width: '100%',
+    gap: 16,
+    alignItems: 'center',
+  },
+  button: {
+    width: '85%',
+    backgroundColor: '#14949C',
+    paddingVertical: 14,
+    borderRadius: 15,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+    letterSpacing: 0.5,
   },
 });
+

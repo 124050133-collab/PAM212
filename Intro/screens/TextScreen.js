@@ -2,30 +2,70 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Alert, Button, StyleSheet } from 'react-native';
 
 export default function TextScreen() {
+
   const [nombre, setNombre] = useState('');
+  const [contraseña, setContraseña] = useState('');
+  const [comentario, setComentario] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [telefono, setTelefono] = useState('');
 
-  const enviarNombre = () => {
-  if (nombre.trim() === '') {
-    Alert.alert('Error', 'Por favor ingresa un nombre');
-    setMensaje('Por favor ingresa un nombre');
-  } else {
-     Alert.alert('¡Hola!', 'Bienvenidooo, ' + nombre + '!');
-    setMensaje('Bienvenidooo, ' + nombre + '!');
-  }
-};
-
+  const enviarDatos = () => {
+    if (nombre.trim() === '' || contraseña.trim() === '' || comentario.trim() === ''|| telefono.trim() === '') {
+      Alert.alert('Error', 'Por favor completa todos los campos');
+      alert('Error: Por favor completa todos los campos');
+      setMensaje('Faltan campos por llenar');
+    } else {
+      Alert.alert('¡Éxito!', 'Datos enviados correctamente');
+      alert('¡Éxito! Datos enviados correctamente');
+      setMensaje('Datos enviados correctamente');
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Ingresa tu nombre:</Text>
+      <Text style={styles.title}>Formulario de ejemplo</Text>
+
+      {/* Input para el nombre */}
       <TextInput
         style={styles.input}
         placeholder="Escribe tu nombre"
         value={nombre}
         onChangeText={setNombre}
       />
-      <Button title="Enviar" onPress={enviarNombre} />
+      {/* Input con teclado numérico */}
+      {/* keyboardType: 'numeric' hace que el teclado muestre solo números */}
+      <TextInput
+        style={styles.input}
+        placeholder="Ingresa tu teléfono"
+        value={telefono}
+        onChangeText={setTelefono}
+        keyboardType="numeric"
+      />
+
+
+      {/* Input para contraseña */}
+      <TextInput
+        style={styles.input}
+        placeholder="Escribe tu contraseña"
+        value={contraseña}
+        onChangeText={setContraseña}
+        secureTextEntry={true}
+      />
+
+      {/* Input con varias líneas para comentario */}
+      <TextInput
+        style={[styles.input, { height: 100, textAlignVertical: 'top' }]} 
+        placeholder="Escribe un comentario"
+        value={comentario}
+        onChangeText={setComentario}
+        multiline={true}
+        numberOfLines={4}
+      />
+
+      {/* Botón para enviar los datos */}
+      <Button title="Enviar" onPress={enviarDatos} />
+
+      {/* Mensaje que cambia dinámicamente */}
       <Text style={styles.mensaje}>{mensaje}</Text>
     </View>
   );
