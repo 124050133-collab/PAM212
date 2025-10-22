@@ -61,11 +61,9 @@ export default function TextScreen() {
         multiline={true}
         numberOfLines={4}
       />
-
-      {/* Botón para enviar los datos */}
+      
       <Button title="Enviar" onPress={enviarDatos} />
 
-      {/* Mensaje que cambia dinámicamente */}
       <Text style={styles.mensaje}>{mensaje}</Text>
     </View>
   );
