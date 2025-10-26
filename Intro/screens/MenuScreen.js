@@ -5,9 +5,11 @@ import ContadorScreen from './ContadorScreen';
 import TextScreen from './TextScreen';
 import ImageScreen from './ImageScreen';
 import ScroollScreen from './ScroollScreen';
+import ScrollScreen2 from './ScrollScreen2';
 import ActivitiIndScreen from './ActivitiIndScreen';
 import FlatListScreen from './FlatListScreen';
 import ModalScreen from './ModalScreen';
+import Repaso1 from './Repaso1';
 
 export default function MenuScreen() {
   const [screen, setScreen] = useState('menu');
@@ -23,12 +25,16 @@ export default function MenuScreen() {
       return <ImageScreen/>;
     case 'scroll':
       return <ScroollScreen/>;
+    case 'scroll2':
+      return <ScrollScreen2/>;
     case 'actInd':
       return <ActivitiIndScreen/>
     case 'flatList':
       return <FlatListScreen/>
     case 'modal':
       return <ModalScreen/>
+    case 'repaso1':
+      return <Repaso1/>
     case 'menu':
     default:
       return (
@@ -40,9 +46,11 @@ export default function MenuScreen() {
             <Button title="Práctica Text" onPress={() => setScreen('textInput')} />
             <Button title="Práctica ImageBackground & SplashScreen" onPress={() => setScreen('image')} />
             <Button title="Práctica Scroll" onPress={() => setScreen('scroll')} />
+            <Button title="Práctica Scroll2" onPress={() => setScreen('scroll2')} />
             <Button title="Práctica ActivitiIndicator" onPress={() => setScreen('actInd')} />
             <Button title="Práctica FlatList & SectionList" onPress={() => setScreen('flatList')} />
             <Button title="Práctica Modal" onPress={() => setScreen('modal')} />
+            <Button title="Práctica Repaso 1" onPress={() => setScreen('repaso1')} />
           </View>
         </View>
       );
@@ -52,7 +60,7 @@ export default function MenuScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EAF4FC', // fondo suave azulado
+    backgroundColor: '#000000ff', // fondo suave azulado
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
@@ -60,7 +68,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#0A3D62', // azul oscuro elegante
+    color: '#185681ff', // azul oscuro elegante
     marginBottom: 30,
     textAlign: 'center',
     letterSpacing: 1,
